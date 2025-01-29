@@ -22,12 +22,18 @@ const Cart = () => {
           // Product Available in cart
           (<div className="flex flex-col gap-x-6">
             <div className="p-4 mt-20 mx-auto lg:w-full">
-              {
-                cart.map((item, index) => {
-                  return <CartItem key={item.id} item={item} itemIndex={index} />
-                  // agar hm return nhi likhna chahte h to curly braces ->{} ki jagah  ye->() use krna pdega
-                })
-              }
+              {cart.map((item, index) => {
+                return (
+                  <div
+                    key={item.id}
+                    className={`pb-4 ${index !== cart.length - 1 ? "border-b-2 max-w-max border-gray-300" : ""
+                      }`}
+                  >
+                    <CartItem item={item} itemIndex={index} />
+                    {/* agar hm return nhi likhna chahte h to curly braces ->{} ki jagah  ye->() use krna pdega */}
+                  </div>
+                );
+              })}
             </div>
 
 
